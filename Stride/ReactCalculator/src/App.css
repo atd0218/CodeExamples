@@ -1,0 +1,176 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  font-family: sans-serif;
+}
+.results {
+  font-size: 2.0em;
+  margin: 0px;
+}
+body{
+  background-image: url("./images/calc3.png") ;
+  background-color: black;
+  background-position: center;
+  background-repeat: repeat-y;
+  color: white;
+}
+.history {
+  font-size: 2.0em;
+}
+.oper {
+  color: #00b2a9;
+  margin: 0px 5px;
+}
+.result {
+  color: #ef426f;
+  margin: 0px 5px;
+}
+.sign {
+  color: #ff8200;
+}
+.Title {
+  font-size: 3.5em;
+}
+.r {
+  color: #00b2a9;
+  
+}
+.hist {
+  font-size: 1.0em;
+}
+
+
+/* Button Styling */
+
+input,
+button {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: auto;
+}
+input {
+  display: block;
+  margin-bottom: 20px;
+}
+button {
+  border: 1px solid gray;
+  background: whitesmoke;
+  margin-right: 5px;
+}
+button:nth-last-child(2),
+button:nth-last-child(1) {
+  background: tomato;
+  color: white;
+}
+.Classes{
+  font-size: 1.2em;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  padding: 0.6em 1em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.Classes:before {
+  content: "";
+  background: linear-gradient(
+    20deg,
+    #000000,
+    #00b2a9,
+    #00b2a9,
+    #ff8200,
+    #ef426f,
+    #ef426f,
+    #ff8200,
+    #00b2a9,
+    #00b2a9,
+    #000000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 500%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.Classes:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+button:hover {
+  color: #00b2a9,
+}
