@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Of Warcraft Info Dex</title>
+    <link rel="stylesheet" type="text/css" href="wow.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <header class="row">
+        <h1 class="marginAndCenter">Learn About World of Warcraft!</h1>
+        <!-- <h2 id="mantra">Hover over the image to see the two Factions.</h2> -->
+        <div class="column">
+            <div class="hole"></div>
+        </div>
+            <!-- <img alt="World of Warcraft logo which converts to either Alli or 
+            Horde Emblem on mouseover." class="emblem"src="wow.jpg"> -->
+        <!-- add image of horde symbol here and use JS to convert to alliance symbol
+             on mouseover or something. -->
+        <div class="column">
+            <nav>
+                <ul>
+                    <li><a href="index.html" target="_blank">Home</a></li>
+                    <li><a href="wow.html"target="_blank">World of Warcraft</a></li>
+                    <li><a href="b12.html" target="_blank">Borderlands 2</a></li>
+                    <li><a href="pacify.html" target="_blank">Pacify</a></li>
+                </ul>
+
+            </nav>
+        </div>
+        
+    </header>
+   
+    <section>
+        <h1 class="marginAndCenter">Two Types of Gameplay</h1>
+    </section>
+    <section class="row">
+        <div class="column">
+            <h1>Player vs Player (PVP)</h1>
+            <p class = "textLeft">Player vs player is the best version of wow in my opinion and what has kept 
+                me playing the game for 20 years. This mode is all about competing
+                against other players in a 2v2 or 3v3 setting.The amount of strategy 
+                that you need to master and then be able to execute real time allows 
+                me to increase my critical problem solving and logical thinking skills. 
+            </p>
+        </div>
+        <div class="column">
+            <h1>Player Vs Element (PVE)</h1>
+            <p class = "textLeft">Player vs element allows you to group up with friends
+                and queue for dungeons or raids. This element of the game is great and 
+                the developers put more time into PVE gameplay than they do PVP. This
+                mode will be recommended for new players learning to play as it will
+                allow you to learn the gameplay and how to remember where all your spells
+                are macroed.
+            </p>
+        </div>
+
+    </section>
+    <section>
+        <h1 class="marginAndCenter">Arena World Championship Video</h1>
+    </section>
+    <section class="row">
+        <!-- Iframe used to embed youtube video -->
+        <div class="column">
+            <iframe alt="Video of WOW Arena Gameplay" id="videoAlign"width="470" height="250"
+            src="https://www.youtube.com/embed/56e-z-EGZlA?si=LIirjOWBmlyOSftO?controls=1">
+            </iframe>
+        </div>
+
+        <div class="column">
+            <p id="videoInfo">Watch AWC team Golden Guardians square of in a best of 5 series
+            against Luminosity Gaming. This was a very exciting series and Golden
+            Guardians got off to an amazing start for the season. Ultimately Liquid
+            Gaming won the entire AWS Championship.
+            </p>
+        </div>
+    </section>
+    <section>
+        <h1 class="marginAndCenter">Explore Some World Of Warcraft Classes</h1>
+    </section>
+    <footer class="row">
+        <div class="column">
+            <button type="button" class="Classes" id="hunt">Hunter</button>
+            <button type="button" class="Classes" id="mage">Mage</button>
+            <button type="button" class="Classes" id="dru">Druid</button>
+            <button type="button" class="Classes" id="voke">Evoker</button>
+            <button type="button" class="Classes" id="lock">Warlock</button>
+        </div>
+        <div class="column">
+            <img alt="Image of the wow class displayed when the button is clicked.
+            "id="wowClass" src="wow.jpg">
+            <p id="classInfo">Select a class button to find out more.</p>
+        </div>
+    </footer>
+
+    <!-- Place JS file -->
+    <script src="Wow.js"></script>
+</body>
+</html>
