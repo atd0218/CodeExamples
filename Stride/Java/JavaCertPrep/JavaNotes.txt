@@ -1,0 +1,1123 @@
+STRING IMMUTABILITY
+
+The String Class is immutable but the reference of the String class is mutable.
+
+Once you create a string and store something in it you are actually creating a reference to the string object created. 
+
+The object itself can't be changed so if you tried to concatanate the string later it would create a brand new object and point the reference to that instead. 
+
+IMMUTABILITY MEANING
+
+Try to make all of your functions immutable meaning you will want to use FINAL keywords anywhere possible and have private variables and constructors to reference classes
+
+STRING CHAINING
+
+	EXP
+
+		String s = "qwe"
+			.concat("rty")
+			.toUpperCase()
+			.replace('E', 'O');
+		sysout(s); //QWORTY
+
+
+STRINGS IN MEMORY
+
+every string will be its own object in memory
+	this object can't be changed
+
+	if you try to modify the reference it will just create a new object and the reference will point to that. 
+
+
+StringBuilder
+
+StringBuilder gives you String-like objects and ways to manipulate them, with the important difference being that these objects are mutable. 
+	
+	StringBuilder objects are mutable
+
+	String objects are immutable (String references are mutable)
+
+	Good to use this class when you have to make a lot of modification to strings of characters
+
+		since string objects are immutable if you need to perform a lot of manipulations then you will end up with alot of unwanted string objects
+
+	String Builder objects can be modified over and over again without leaving behind abandoned objects.
+
+	Append Method
+
+		updates the object that invoked the method. Will update the actual object since it is mutable
+
+
+FROM UML TO CODE
+
+	UML is the unified modeling diagram to express your code in a diagram. 
+
+	_____________ (underline) = static
+
+	~ - package visible
+	+ - public visible
+	- - private visible
+
+	main method example
+
+		+main(args : String []) : void (should be underlined) - equivilates to "public static void main (String [] args)"
+
+	Sections of UML
+
+		Diagram
+
+			display the diagram
+
+		Instructions
+
+			explain all the steps for the methods listed in the diagram
+
+
+METHODS
+
+	group or block of java statements that are given a name for ease of reference
+
+	very useful if you want to reuse code
+
+	you can call the method as often as required
+
+	Method signature
+
+		method name
+		parameter types
+		order
+
+	methods do not execute until they are called/invoked
+
+
+	Be sure to pass arguments in the correct order when calling methods
+
+STATIC KEYWORD
+
+	Imagine these situations
+
+		you don't want every object to have it's own copy of a variable
+			you want the one variable copy to be shared across all instances/objects
+
+		you want to access or provie a utility method without the cost of creating an object.
+
+	The static keyword is designed for both of the above situations
+
+		a) class variables will be shared among all instances
+		b) utility methods do not require an object instance
+
+	Although static members (data or methods) can be accessed using an object instance this is not a good practice
+
+		instead use ClassName.staticMember when accessing static members
+
+
+CONSTRUCTORS
+
+	constructors are used to construct an object 
+
+	a constructor is a special type of method -- it has two identifying characteristics:
+
+		same name as the class
+		no return type - a reference to the newly constructed object is returned secretely in the background. 
+
+	the constructor is executed via "new"
+		exp
+			Person p = new Person("Tommy");
+
+	Constructors can be overloaded to provide more configuration options to create an object of the class
+		exp
+			public Person (String name) {}
+			public Person (String name, int age,) {}
+
+		now you can call the Person object and provide just a name or a name and age
+
+	every class gets a constructor whether you specify one or not
+
+		if one is not provided then a default one will be created by the compiler
+			same access as the class
+
+			invokes "super();"
+
+ENCAPSULATION
+
+	core principle of OOP whereby outside components cannot change/modify a components internal state without the components knowledge and permission
+
+	often referred to as "data hiding"
+
+	enabled in Java when private data is accessible by public methods
+
+	Getters and Setters are examples of using encapsulation
+		you are using public methods (getters and setters) to access or modify private attributes
+
+ACCESS MODIFIERS
+
+	java provides the following access modifiers (in order of most restrictive to least restrictive):
+
+		private
+		package-private/default
+		protected
+		public
+
+	private - accessible only to the class in which the member is defined
+
+	package-private - no keyword applies this access; accessible to the class and any other class in the same package
+
+	protected - accessible within the same package and also to children of the class outside of the package
+
+		package + children of the class
+
+	public - available everywhere
+
+When is an Objects value changed vs when is the reference changed
+
+	Call-By-Value
+
+		this is used when an argument is passed to the method
+
+		there is a difference in the effect of passing a copy of a primitive and passing a copy of a reference
+
+			primitive - the called method cannot change the primitive value in the caller method
+
+			reference - the called method can change the object (state) that the caller method is looking at
+
+OBJECT ORIENTED APPROACH SECTION 
+
+SCOPE
+
+	Java uses block scope. A block is defined with {}
+
+	blocks can be nested e.g. a variable defined in an outer block is visible (in scope) in any inner block
+
+	instance and class variables have the scope of the class
+
+	method parameters have the scope of the method
+
+	local variables have the scope of where they are declared to the end of the enclosing block (in which they are declared)
+
+	top-level types (classes and interfaces) can have global (public) scope and package-private scope (no keyword)
+
+CLASSES
+
+	Java is an OOP language. 
+
+	Classes define a template (plan of a house)
+
+	objects are the in-memory representation of the class
+
+	Classes contain both instance and class variables
+		instance variables are non-static
+		class variables are static
+
+	Creating an object:
+		Person p = new Person(); //reference vs object
+
+ENCAPSULATION 
+
+	This is a core concept in OOP
+
+	Encapsulation is the principal of data hiding
+
+	Access modifiers enable encapsulation
+
+	Typically, you keep your data private and provide acces to the data via public methods
+
+	Access modifiers:
+
+		private - available to the class only
+		package-private - no-keyword, available within the same package only
+		protected - available withing the same package and children
+		public - available everywhere. 
+
+
+
+OVERLOADING
+
+	The signature of a method is the name of the method and it's parameter types and their order. 
+
+	the access modifer, paramert names and crucially the return type are NOT part of the signature
+
+	to 'overload' a method means you are using the same name but the parameter types and/or order is different. 
+
+	For example, the following are all overloaded methods:
+		public void m1() {}
+		public int m1(int x) {} //return type not part of signature
+		void m1(double y) {} //access modifier not part of signature
+		public void m1(String s, int x) {} //order of args important
+		public void m1(int x, String s) {}
+
+'THIS' REFERENCE
+
+	referes to the object instance which invoked this instance method
+
+	available to instance methods only (compiler error if you use this in a static method)
+
+	the compiler secretely passes the this reference in as the first argument to any instance method
+
+	useful if parameter names 'hide' instance variable names
+		if a method parameter uses the same identifer as an instance variable you can use this to distinguish the two
+			exp
+				this.name = name
+
+
+OBJECT INITIALISATION
+
+	Consider a class cow:
+
+		1. the first time an object of type Cow is created OR the first time a static field or method in Cow is accesses, JVM locates Cow.class
+
+		2. As Cow.class is loaded, all of its static initialisers are run (in the order they appear in the code). This happens only once,
+		as Cow.class is loaded for the first time. 
+
+		3. When you create another 'new Cow()', space is allocated on the heap and it is wiped to zero. This sets all the primitives in that object
+		to their default values (0 or 0.00 for numbers, false for boolean, and null for references (Integer, String etc...))
+
+		4. all the non-static (instance) initialisation now takes place (instance variables and instance blocks). 
+		The order the non-static variables or blocks appear is the order they are initailised. 
+
+		5 constructor(s) are executed
+
+		Note: when inheritance is included then extra steps will be added 
+
+		To help remember the order things are initialized
+
+			S - Static
+
+			I - Instance
+
+			C - Constructors
+
+
+IMMUTABLE TYPE
+
+	Certain API classes are immutable by default
+		Strings, Double, Integer 
+
+	Some classes are mutable by default	
+		StringBuilder
+
+	it may look as though the String object has changes but in reality a new String object was created
+	and the reference was updated to that. The old String object then becomes eligible for garbage collection
+	as long as there are no references pointing to it. 
+
+	Immutability means something can't change
+
+		for Primitives (data) - the primitive itself can't change
+
+		objects - both the reference and the object can be made immutable. However, we need to be able to make outer
+		own user-defined type immutable
+	
+	The FINAL keyword
+
+		if applied to a primitive (data) the primitive value can't change
+
+		if applied to a reference, the reference cannot change
+			however, if the object referred to is mutable (StringBuilder) then we can change the object
+
+	How to make your own type immutable
+
+		1. Do not provide any "setter" method
+		2. make all the fields private and FINAL
+		3. prevent subclassing (prevents overriding)
+			a. make the class FINAL
+			b. make the constructor priavate and provide a public static factory method
+		4 Instance fields
+			a. immutable types (String) ok
+			b. mutable types (StringBuilder) do NOT share references in this case you will want to use "defensive copying"
+			and "advanced encapsulation"
+		
+		Defensive Copying/Advanced Encapsulation example	
+			private final ArrayList<String> employees;//mutable
+
+			//inside constructor
+			this.employees = new ArrayList<String>(employees); //create a new ArrayList
+
+			we create a new array list each time containing the employees plus whatever was added. This way we ensure the 
+			original ArrayList was not modified but the person calling can use it and add as they will have their own copy. 
+
+
+CALL-BY-VALUE
+
+	Java supports "call-by-value" when a method is invoked. Simply put, "a copy is made" of something.
+
+	What gets copied?
+
+		if it is a primitive, then the called method CANNOT CHANGE the primitive value in the caller method (as it is only a copy).
+
+		if it is a reference, then the called method CAN CHANGE the object that the caller method is using (as the 2 references refer to the same object)
+
+
+INHERITANCE
+
+	a core pillar in OOP
+
+	inheritance is a code reusability mechanism in Java in which common properties between related types are exploited by forming relationships
+
+	the common properties are provided in the "super/parent/base class" and are available to the more specialized "sub/child/derived class"
+
+	inheritance relationships in Java are created by extending from a class (extends) or implementing an interface (implements)
+
+	inheritance forms an "IS-A" relationships
+		exp
+			Corvette is a type of CAR but Ferrari is also a type of CAR
+
+
+    POLYMORPHISM
+
+        another core pillar in OOP
+            PIE = Polymorphism, inheritance, and incapsulation
+
+        the term polymorphism has greek origins "poly" (many) and "morphe" (forms).
+
+        Any Java object that can pass more than one IS-A test can be considered polymorphic. Other than objects of type Object, all Java objects are
+        therefore polymorphic (as they pass the IS-A test for both Object and their own type).
+
+        Reference and Object example
+            Car c = new Car(); // c is the reference; its type is Car
+
+        Some key points about references:
+            the reference type can never be changed (although the object it refers to can be changed)
+
+            the reference type determines which methods can be invoked on the object that the references refers to
+
+            a reference can refer to any object of the same type as teh references' type or any subytpe of the references' type (accross and down the inheritance tree)
+
+            a reference can be a class type or an inteface type. If the reference is an interface type, the reference can refer to any object of any class
+            that implements the interface
+
+        polymorphic method invocations apply only to instance methods (non-static methods). Only overriden instance methods are dynamically invoked based on the object.
+
+        if at rutime, you are accessing data (instance or static) or static methods, the reference type is used, if its an instance method, the object type is used.
+
+
+    OVERRIDDING/OVERLOADING
+
+        At compile time, it is the reference type that is important to determining which overloaded methods, depending on their signatures will be invoked
+
+        at runtime, polymorphism kicks in and the JVM, based on the object type, selects which overriden method to execute.
+
+        Overridding - remember that because of inheritance a subytpe is guaranteed to be able to do everything a super type can do. The subytpe can override the instance
+        method and thus provide its own custom implementation; or, the subtype can just use the super type version it inherited.
+
+        Overloading - where you can reuse the same method name in a class but with different arguments (and optionally, a different return type).
+
+        Which overriden version of the method to call (which class in the inheritance tree) is decided at runtime based on the object type
+
+        Which overloaded version of the method to call is based on the reference type at compile time.
+
+        Rules for Overriding a method
+
+            the argument list must exactly match that of the overridden method; otherwise you are just overloading the method.
+
+            the return type must be the same as, or a subtype of (covariant return), the return type declared in the overriden method in the superclass.
+
+            the access level cannot be more restrictive than that of the superclass method
+
+            the method must be inherited first before it can be overridden
+
+                if the parent class method is private, static, or final, the method CANNOT be overridden.
+
+                if the parent class method is package-private access and you are trying to override the method in a class in a different package
+                then the method CANNOT be overridden
+
+            the overridden method CANNOT throw new or broader checked exceptions than the parent class method.
+
+            The overriding method CAN throw fewer checked exceptions than the parent class.
+
+            the overridding method CAN throw any unchecked exception it likes (as the compiler does not "check" unchecked exceptions).
+
+        Rules for Overloading a method
+
+            Overloaded methods MUST change the argument lists (either in argument type or the order of the types).
+
+            overloaded methods CAN change the return type, the access modifier and declare new or broader checked exceptions
+
+            an overloaded method can be overlaoded in the same type or in a subtype
+
+
+    INSTANCEOF AND EQUALS(OBJECT)
+
+        Used to determine if a reference is referring to an object of a certain type (class or interface).
+
+        Very useful when overriding equals(Object) from Object
+
+        public boolean equals(Object)
+
+            the same as == (they are both lookint to see if the references are referring to the same object in memory)
+
+            override this to provide custom behavior
+
+        .equals
+
+            if you override equals then you need to override hashcode as well to ensure that objects that are equal.
+            have the same hashcode.
+
+        instanceOf
+
+
+            you can use this as a safety to make sure an overridden method can only be used on certain object.
+
+                EXP
+                   //override equals method
+                   public boolean equals(Object o) {
+                    if(o instanceof YourClassName) {
+                        // now it is safe to downcast
+                        //also allows you to access the class variables
+                        YourClassName class = (YourClassName)o;
+                    }
+                   }
+
+    SUPER() AND SUPER.
+
+        super([args]) is how a constructor calls its parent constructor
+
+        super.XXX([args]) is how you call a parent method
+
+        You cannot go super.super.method()
+
+    PROTECTED
+
+        Already discussed the access modifiers: private, public, and package-private (no keyword)
+
+        A protected member is similiar to a package-private member in that a protected member may be accessed if teh class
+        accessing the member is in the same package
+
+        the difference is a protected member can be accessed by a subclass (via inheritance, in a very specific way), even
+        if the subclass is in a different package
+
+        protected = package + kids
+
+        a subclass-ouside-the-package, believe it or not, CANNOT use a superclass refernce to access the protected member it
+        already has access to via inheritance!
+
+        in addition, a class outside the package cannot use a reference to the subclass-outside-the-package either to access
+        the protected member i.e. once the subclass-outside-the-package inherits protected member, that member becomes private
+        to any code outside the subclass, with the exception of subclasses of the subclass.
+
+    CONSTRUCTORS
+
+        every class, including abstract classes, MUST have a constructor
+
+        Two key points about constructors:
+
+            constructors have exactly the same name as the class name
+
+            constructors have no return type
+
+        constructors typically initialise the object state.
+
+        constructors are not inherited and as a result are never overridden but can be overloaded
+
+        if you see a method with the same name as the class but has a return type then it is a method
+        and NOT a constructor
+
+        if you do not provide ANY constructor,  a default constructor is provided by the compiler for you
+
+            the default constructor is ALWAYS a no-arg constructor
+
+            it will have the same access as the class
+
+            it's first line will be "super();"
+
+        An instance variable/method cannot be accessed until after super() runs; this makes sense as you may
+        use parent instance variables when initialising your own instance variables.
+
+        only static variables/methods can be accessed as part of the call to this([args]) or super([args])
+
+        Every constructor has, as its first arguments
+            a call to an overloaded constructor this([args]) or a call to the superclass constructor (super[args])
+
+        the compiler can and usually will insert super() as its first statement in the constructor.
+
+        you can insert your own no-arg constructor if you choose
+            the compiler will never generate one as long as you have generated one.
+
+    ABSTRACT METHODS
+
+        An abstract method has no implementation ie no {}
+
+        you mark a method abstract when you want to force subclasses to provide an implementation
+
+        if you have 1 or more abstract methods then the class MUST be abstract
+
+        abstract methods must never be marked:
+
+            final (do not override) becasue abstract means please override
+
+            private (not inherited, no way to override)
+
+    ABSTRACT CLASSES
+
+        an abstract class cannot be instantiated (new'ed); an abstract class's purpose is to be
+        extended (subclassed).
+
+        if a class has an abstract method(s) then the intention for the abstract class to be extended
+        and the abstract method(s) overrided (or else the subclass itself must be abstract)
+
+        any class that extends an abstract class must provide implemntation for all of the abstract methods
+        of the superclass, unless the subclass itself, is also abstract.
+
+            the rule is: the first concrete (non-abstract) subclass of an abstract class must implement (or
+            inherit) all abstract methods of the superclass.
+
+        An abstract class can contain 0 or more abstract methods i.e an abstract class does not need to have
+        any abstract methods.
+
+        A class cannot be marked as both abstract and final. They have opposite meanings - an abstract class
+        is intended to be subclasses whereas a final class must not be subclassed.
+
+    UPCASTING/DOWNCASTING
+
+	    Upcasting
+
+            Animal is the parent class and Dog is the subclass
+
+            for the example above this would be upcasting: Animal ad = new Dog();
+
+            Upcasting happens implicitly (as above) becasue every Dog "is-a" Animal. This will never cause a problem
+            because the Dog class will, via inheritance, have all the methods you could possibly call using the Animal
+            reference.
+
+            Remember, the reference type determines the methods you can call.
+
+            Upcasting is so called because, reading the line of code above from right to left we are going "up" the
+            inheritance hierarchy from Dog to Animal.
+
+        Downcasting
+
+            What if you want to call a Dog method that is not in the Animal class and you "only have" an Animal reference.
+
+            This is where downcasting comes in. Remember, that a reference must never point "up" the hierarchy e.g. a dog
+            reference must never refer to an Animal (Dog da = new Animal() THIS IS NOT ALLOWED)object because Dog may well have extra methods that Animal does not.
+            If this occurs, you get a ClassCastException
+
+            instanceof, as we saw in equals(), can protect against this
+
+            it is called this because reading the code from right to left we are going "DOWN" from Animal to Dog
+
+INTERFACES
+
+    In general, when you create an interface, you are defining a contract for what a class can do; without saying anything about how the class will do it.
+
+    A class "signs" the contract with the keyword implements
+
+    When implementing an interface, you are agreeing to adhere (obey) to the contract defined in the interface.
+
+    If a concrete (non-abstract) class is implementing an interface, the compiler will ensure that the class has implementation code for each abstract method
+    in the interface.
+
+    A class can only extend one other class, but a class can implement many interfaces.
+
+        class Dog extends Animal implements Moveable, Loveable
+
+        A Dog "is-a" :Animal, Moveable, Loveable
+
+    As of Java 8, it is now possible to inherit concrete methods from interfaces. Interfaces can now contain two types of concrete methods: static and default.
+
+        implementation classes are NOT required to implement an interface's static or default methods.
+        The default interface methods are inheritable but the static interface methods are not.
+
+    Interfaces themselves are implicitly abstract
+
+        public abstract interface I{}
+        top-level interfaces can have public or package-private access.
+
+    All interface methods are implicitly public
+
+    All interface methods are implicitly abstract
+
+        unless declared as default or static, the new features introduced in Java 8
+
+    All variables declared in an interface must be public, static and final
+
+        interfaces can only DECLARE constants (not instance variables)
+
+    As with abstract classes you cannot new an interface type but they can be references
+
+    THE KEY RULE for interface constants
+
+        by default they are public static final this means that they are read-only and they can never be given a value by an implementing or any other class.
+
+    By placing the constants in the interface, any class implementing the interface has direct access to the constance, just as if the class had inherited them.
+
+    DEFAULT INTERFACE METHODS
+
+        As of Java 8 interfaces can include default methods with concrete implementations. Why? Previously, adding new methods to an interface broke existing clients
+        as interfaces required all implementing code to provide implementations for all methods (which would include the new ones).
+
+        Default methods allow us to deal with this issue - new default methods (along with their implementation code) are automatically available in all implementing
+        code. Thus, there is no need to refactor the client implementing classes and backwards compatibility is maintained.
+
+        default methods use the default keyword and default methods are not allowed in classes, only in interfaces
+
+        default methods are public by default (public is optional)
+
+        default methods MUST have a concrete method body i.e. {}
+
+        implemntation classes are NOT required to implement an interfaces default (or static) methods.
+
+        default and static can't go together
+
+    STATIC INTERFACE METHODS
+
+        As of Java 8, intefaces can include static methods with concrete implementations. Now interface-related utilites and factory methods can be stored in the interface
+        instead of needing seperate classes thus "making it easier to organize your helper methods in your libraries; you can keep static methods specific to an interface in
+        the same interface rather than in a seperate class" [Java Docs].
+
+        static interface methdos use the static keyword
+
+        static interface methods are public by default (public is optional)
+
+        static interface methods must have a concrete method body i.e. {}
+
+        when invoking a static interface method, the interface name MUST be included in the invocation
+
+            You can directly call the static methods
+
+                example
+
+                    IntefaceName.StaticMethodName
+
+    MULTIPLE IMPLEMENTATION INHERITANCE
+
+        In languages such as C++ multiple inheritance is supported i.e. where a class can extend from more than one class. Java's creators decided not to allow this as it can
+        lead to a scenario such as "Diamond of Death".
+
+        Diamond of Death
+            gets its name from the UML class diagram representing the problem
+
+            the diamond is formed when classes B and C extend from A; in addition, D extends from both B and C - A is at the top of the diamond and D is at the bottom of the
+            diamond.
+
+            if class A defines a method m() and B and C both override m() then D has inherited two different implementations of m()
+
+        Java has decided:
+
+            that it will support multiple interface implementation
+            Java 8 introduced concrete methods into interfaces
+
+            Is the Diamond of Death possible with java?
+
+                no, if you want to code a class that implements interfaces that have identical concrete methods, the compiler ensures that you override the method in the class that
+                you are coding.
+
+    FUNCTIONAL INTERFACES
+
+        a functional interface is an interface that has ONLY ONE ABSTRACT method. This is known as the SAM(Single Abstract Method) rule.
+
+            default methods DO NOT COUNT.
+            static methods DO NOT COUNT.
+            methods inherited from Object DO NOT COUNT*
+
+ENUMERATIONS
+
+    Enumerations (or enums) are very useful when you have a type that can have only a finite set of values
+        exp
+            days of the week, directions, seasons
+
+    enumerations are special classes that allow us to provide a type-safe solution by restricting the object instances allowed.
+
+    Using numeric or String constants, it is possible to use an incorrect value and only find out at runtime. If you use an incorrect enum value, the compiler will flag it
+
+    The values of an enum are expressed simliarly to constant i.e. in capital letters, However, these are in fact references to the only object instances of the enum (class)
+    allowed.
+
+        exp
+            public enum Direction {
+                    NORTH, SOUTH, EAST, WEST
+            }
+
+    Enumerations are like static and final constants i.e. each enum value is only initialised once. This means you can use == as well as equals() to compare enums.
+
+    enums implicitly extend java.lang.Enum and as Java does not support multiple inheritance, an enum cannot extend anything else.
+
+    An enum can also contain files, methods and constructors. These are called "complex enums".
+
+    Enum constructors are implicitly private. This is expected as you cannot extend an enum and constructors can only be called from within the enum (the enum values)
+
+    You cannot new an enum.
+
+    Each of the enum values get an ordinal value, starting at 0. However, remember that enums are a type and not a primitive i.e. you cannot compare an enum with an int.
+        if (Direction.NORTH == 0) - this gives you a compiler error
+
+    ENUM METHODS
+
+        values() - static values() method allows you to iterate through the values of an enum in the order they are declared.
+
+        name() - returns the name of the enum constant
+
+        ordinal() - returns the ordinal value of the enum constant; its position in the enum declaration; the initial constant has a value of 0
+
+        valueOf(String name) - returns the enum constant with the specified case-sensitive name.
+
+    COMPLEX ENUMS
+
+        As stated earlier, enums can have members, constructors, and methods.
+
+        We never call the constructors ourselves - we simply refer to the enum value.
+
+        The first time we refer to an enum value, Java will construct all the enum values. Any reference after that to an enum value, Java simply returns the already constructed
+        one. Therefore, construction only happens once.
+
+        The "constant specific class body" is used whenever you want a particular constant to override a method in the enum
+
+
+OBJECTS LIFECYCLE
+
+    Local variables are kept on the stack (speed).
+
+    instance variables and objects live on the heap (large area of memory).
+
+    an object is created using the new keyword.
+
+    This allocates storage on the heap for the object.
+
+    The garbage collector is responsible for reclaiming memory no longer needed i.e. objects where there are no longer any references referring to them.
+
+    When the garbage collector runs is outside our control i.e. the JVM decides. For example, when the system is idle is one possible opportunity.
+
+    System.gc() command "suggests" that the JVM should run it but it is not forced to do so when that command is ran.
+
+EXCEPTION HANDLING
+
+    Exceptions
+
+        Java's exception-handling features give us the following benefits:
+
+            an elegant mechanism that produces efficient and organized error-handling code
+
+            errors are detected easily without the need to write special code to test return values
+
+            exception-handling code is cleanly seperated from exception-generating code
+
+            the same exception-handling code can be used to deal with a range of possible exceptions
+
+        An exception indicates that something unexpected happened. An "exceptional" condition has occured.
+
+        An exception alters the normal flow of execution
+
+        There are two approaches
+
+            1. Method can handle the exception itself
+            2. The method can hand over responsibility to the caller method.
+
+        Throwable - all exceptions inherit from this class
+
+        Error - unexpected, serious conditions such as running out of memory. Error and all of it's subtypes are "unchecked" exceptions.
+
+        RuntimeException - unexpected situations that are not necessarily fatal. RunTime exception and its subtypes are "unchecked" exceptions.
+
+        Exception - situations that can be anticipated (file IO error). Exception and its subtypes (except for RuntimeException) are all "checked"
+
+        CATCH OR DECLARE
+
+            because checked exceptions tend to be anticipated, Java makes sure some thought goes into them.
+
+            This rule states that all checked exceptions that could be thrown within a method are wrapped in a try-catch block or are thrown from the
+            method (declared in the method signature)
+
+            RuntimeException's do not have to obey this rule. This is why they are called unchecked exceptions.
+
+        Runtime Exception examples:
+
+            ArithmeticException (divide by 0)
+
+            ArrayIndexOutOfBoundsException (accessing beyond the bounds of an array)
+
+            ClassCastException (have a reference point up in the inheritance tree)
+
+            IllegalArtgumentException (thrown by a method if it receives an invalid argument)
+
+            NullPointerException (trying to invoke a method when the reference is null)
+
+            NumberFormatException (trying to format "two" to 2; should be "2"
+
+        Common Check Exception Classes:
+
+            IOException (reading/writing a file)
+
+            FileNotFoundException (trying to access a file that does not exist)
+
+        Call Stack
+
+            the call stack is the cahin of methods that your program executes to get to the current method.
+
+            The last method is called at the top of the stack and the first method is at the bottom.
+
+        Exception Propagation
+
+            IF AN EXCEPTION IS NEVER CAUGHT BY ANY OF THE METHODS IN THE CALL STACK, THE CALL STACK IS "DUMPED" to the screen and your program stops running.
+
+            The call stack is displayed helps you debug your code by telling you what exception was thrown, from what method it was thrown and what the stack
+            looked like at the time.
+
+        TRY CATCH BLOCKS
+
+            When an exceptional event occurs in Java, an exception is said to be "thrown".
+
+            the code that is responsible for doing something about the exception is called the "exception handler" and it "catches" the thrown exception.
+
+                try {
+                    //code to try
+                }
+                catch (ExceptionType identifier) {
+                    //handle this exception
+                } //more catch blocks if needed
+                //some other unguarded, non-risky code
+
+            The {} around the try block are mandatory
+
+            a catch/finally is required
+
+            All caught checked exceptions must be thrown from the try block; otherwise the relevant catch blocks are unreachable.
+
+            Multiple catch blocks are allowed and are evaluated in the order that they are coded. Thus, care is required that you do not have "unreachable code" errors i.e. code the catch
+            blocks in the ORDER FROM MOST SPECIFIC TO LEAST SPECIFIC
+
+            multi-catch blocks enabled unrelated (sibling) exceptions to be handled together, thereby reducing code duplication. The identifier used must appear only once.
+
+        FINALLY BLOCKS
+
+            the finally block is designed for tidying up resources (e.g. file and database connections) regardless of whether an exception occurs or not.
+
+            if present, the finally block is after the last catch block and if there are no catch blocks, the finally block is after the try block.
+
+            the fianlly block is always executed, regardless of whether an exception is thrown or not.
+
+        TRY-WITH-RESOURCES
+
+            closing resources in the finally block can get lengthy as the closign of these resources needs to be wrapped in try-catch blocks also.
+
+            Java introduced the try-with-resources statement for this reason.
+
+            Resources opened in the try clause are automatically closed by Java in an implicit finally block.
+
+            you can code you own explicit finally block but the implicit one will be called first.
+
+            the rule that a try requires a catch or finally still applies; however, given that the finally block is implicit, the catch is no longer mandatory.
+
+            this is only for the try-with-resources statement. The traditional try block requires a catch or finally (or both)
+
+            seperate the resources in the try clause with semi-colon (;)
+
+            the resources created in the try clause are local to the try block so they are only in scope for that block.
+                Do not try to access these resources in a catch or (explicit) finally block
+
+                since they are local, var can be used.
+
+            Resources are closed in reverse order to the order they are created.
+
+            If the implicit Finally block results in an exception then there is an array that you can access to check what is in there called the suppressed array.
+
+        EXCEPTION SIGNATURES WHEN OVERRIDING METHODS
+
+            Overriding a method can be done in two ways:
+
+                extending a class
+                implemnting an interface
+
+            Either way, you cannot add extra checked exceptions in the overriding method signature.
+
+            This is because the compiler is concerned with the reference type
+
+                if the reference type is extended and the subtype overrides a parent method then the compiler still only checks the parent signature. Thus, the
+                overridden code cannot polymorphically generate exceptions that there is no code for.
+
+        CUSTOM EXCEPTIONS
+
+            Required if you need an exception that is not alreday provided by the Java API
+
+            When you want to hide the exception from the caller method, i.e. if returning the Java API exception type, would expose to much information about
+            your implementation
+
+            we define our custom exception classes by extending the relevant API exception and providing our own constructors.
+
+                no-arg construct
+                constructor that takes an Exception
+                constructor that take a String
+
+ARRAY LISTS
+
+    An array is a data structure for storing primitives or objects of the same type
+
+    Arrays have a major implementation which is that they are fixed in size.
+
+    ArrayLists have no such fixed-in-size limitation and are often referred to as "expandable arrays".
+
+    However, ArrayLists can not store primitives (they are wrapped in their respective wrapper type).
+
+LAMBDAS
+
+    Interfaces
+
+        in general when you create an interface, you are defining a contract for what a class can do; without saying anything about how the class will do it.
+
+        A class "signs" the contract with the keyword IMPLEMENTS
+
+        when implementing an interface, you are agreeing to adhere (obey) to the contract defined in the interface.
+
+        if a concrete (non-abstract) class is implementing an interface, the compiler will ensure that the class has implementation code for each abstract method
+        in the interface.
+
+        While a class can only extend one other class a class can implement many interfaces.
+            interfaces = Moveable, Loveable - a Dog could implement both as it passes the is-a test.
+
+        As of Java 8, it is now possible to inherit concrete methdos from interfaces. Interaces can now contain two types of concrete methdos: static and default
+            implementation classes are NOT required to implement interfaces static or default methods.
+
+            the defult interface methdos are inheritable but the static interface methods are not.
+
+        Interfaces themselves are implicitly abstract
+
+            public abstract InterfaceName I {}
+
+            topp-level interfaces can have public or package-private access
+
+        All interfaces methods are implicitly public
+
+         All interface methods are implicitly abstract
+
+                unless declared as default or static, the new features introduced in Java 8
+
+            All variables declared in an interface must be public, static and final
+
+                interfaces can only DECLARE constants (not instance variables)
+
+            As with abstract classes you cannot new an interface type but they can be references
+
+            THE KEY RULE for interface constants
+
+                by default they are public static final this means that they are read-only and they can never be given a value by an implementing or any other class.
+
+            By placing the constants in the interface, any class implementing the interface has direct access to the constance, just as if the class had inherited them.
+
+            DEFAULT INTERFACE METHODS
+
+                As of Java 8 interfaces can include default methods with concrete implementations. Why? Previously, adding new methods to an interface broke existing clients
+                as interfaces required all implementing code to provide implementations for all methods (which would include the new ones).
+
+                Default methods allow us to deal with this issue - new default methods (along with their implementation code) are automatically available in all implementing
+                code. Thus, there is no need to refactor the client implementing classes and backwards compatibility is maintained.
+
+                default methods use the default keyword and default methods are not allowed in classes, only in interfaces
+
+                default methods are public by default (public is optional)
+
+                default methods MUST have a concrete method body i.e. {}
+
+                implemntation classes are NOT required to implement an interfaces default (or static) methods.
+
+                default and static can't go together
+
+            STATIC INTERFACE METHODS
+
+                As of Java 8, intefaces can include static methods with concrete implementations. Now interface-related utilites and factory methods can be stored in the interface
+                instead of needing seperate classes thus "making it easier to organize your helper methods in your libraries; you can keep static methods specific to an interface in
+                the same interface rather than in a seperate class" [Java Docs].
+
+                static interface methdos use the static keyword
+
+                static interface methods are public by default (public is optional)
+
+                static interface methods must have a concrete method body i.e. {}
+
+                when invoking a static interface method, the interface name MUST be included in the invocation
+
+                    You can directly call the static methods
+
+                        example
+
+                            IntefaceName.StaticMethodName
+
+    Lambdas
+
+        A lambda expression is just a block of code that helps in making your code more concise.
+
+        A lambda expression only works with FUNCTIONAL INTERFACES (Interfaces with only one ABSTRACT METHOD)
+
+        A LAMBDA EXPRESSION IS AN INSTANCE OF A CLASS THAT IMPLEMENTS A FUNCTIONAL INTERFACE.
+
+        Lambdas look alot like methods and in some quarters are called "anonymous methods". However, it is an instance with everything but the method stripped away.
+
+        A lot can be inferred (by the compiler) from the interface definition (which remember, has only one abstract method).
+
+            The lambda expression is the instance that implements the interface that has been boiled down to the bare essentials.
+
+        EXP
+            interface I {
+                void m();
+            }
+
+            I lambdaI = () - > {
+                sys out ("Lambda Version")
+            }
+
+            //() - indicating the abstract method you will override from the interface
+
+CALENDAR DATA MANIPULATION
+
+    java.time package is new in Java 8 and the classes in this package are designed to replace the "old" java.util.Data, java.util.Calendar, and java.text.DateFormat
+
+    Local dates and times - these dataes and times are local to your time zone (LocalDate, LocalTime, and LocalDateTime). All are immutable.
+
+    Formatters for dates and times - parse/print dates and times according to patterns and styles (DateTimeFormatter). Immutable
+
+    period - represents days or longer. Immutable
+
+    do not "new" a class in the date/time API. Use factory creation methods (now(), of(), and parse())
+
+    of()
+        allows you to set the date in a variable
+
+    now()
+        grabs the current date or time in the specified timezone
+
+    parse()
+        allows you to set the date in a variable
+
+    Formatting
+
+        in addition to standard formats, it supports a custom format string for customisation:
+
+            case matters i.e M means month whereas m means minutes (of the hour)
+
+            the number of symbols is important:
+                M would output 1 for Jan
+                MM would output 01 for JAN
+                MMM would output Jan for JAN
+                MMMM outputs full month name
+
+        The date/time classes have a format(formatter) method and DateTimeFormatter has a format(TemporalAccessor). Both ways work
+
+            TemporalAccessor is an interface that LocalDate, LocalTime, and LocalDateTime all implement.
+
+    Period
+
+        A period represents years, months and days
+
+        Periods are output with a P
+
+        They are created using the static factory methods of XXX()
+
+            Period.ofyears(1); // every year P1Y
+            Period.ofMonths(1); //every month, P1M
+            Period.ofWeeks(3); //weeks are not stored so needs to be p21D
+            Period.of(1,2,3): //every year, 2 months and 3 days, P1Y2M3D
+
+
+		
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
